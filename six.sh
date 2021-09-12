@@ -1,10 +1,13 @@
 #!/bin/bash
 
 #if the num of sec(in the current time) is even return even else return odd
-function current_sec_state{
-        if($((date +%s % 2 == 0)); then
-                echo "even"
-        else echo "odd"
+current_sec_state(){
+        local time_in_sec=$(date +%s)
+        if [ `expr $time_in_sec % 2` -eq 0 ]
+        then
+                echo "even $time_in_sec"
+        else
+                echo "odd $time_in_sec"
         fi;
 }
 
